@@ -1,0 +1,71 @@
+import { useEffect, useState } from "react"
+import { getAllUsers } from "../api/user"
+import Nav from "../components/Nav"
+import Spinner from "../components/Spinner"
+import UserEdit from "../components/UserEdit"
+
+export default function UserCRUD() {
+    const [refreshTrigger, setRefreshTrigger] = useState()
+    const [selectedUserID, setSelectedUserID] = useState(null)
+    const [users, setUsers] = useState([])
+    useEffect(() => {
+        getAllUsers()
+            .then(users => {
+                setUsers(users)
+            })
+    }, [refreshTrigger])
+
+    return <>
+        <Nav />
+        <div className="container mx-auto grid grid-cols-2 mt-16 gap-16">
+            <div className="rounded-2xl border-2 border-primary p-2 ">
+                <h2 className="text-center">Users</h2>
+                
+
+                <div className="overflow-auto w-full">
+                    {users == null
+                        ? <Spinner />
+                        : <table className="table table-compact w-full overflow-scroll">
+                            <thead>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Email</th>
+                                <th>Select</th>
+                            </thead>
+                            <tbody>
+                                {users.map(user =>
+                                    <tr key={user.id}>
+                                        <td>{user.firstname} {user.lastname}</td>
+                                        <td>{user.role}</td>
+                                        <td>{user.email}</td>
+                                        <button
+                                            className="btn btn-xs mt-1"
+                                            onClick={() => setSelectedUserID(user.id)}
+                                        >Edit</button>
+                                    </tr>)}
+                            </tbody>
+                        </table>
+                    }
+                </div>
+            </div>
+            <div className="rounded-2xl border-2 border-primary p-2">
+                <h2>Select a User</h2>
+                <UserEdit
+                    userID={selectedUserID}
+                    onSave={() => setRefreshTrigger({})}
+                    allowEditRole={true} />
+                    <div className="overflow-auto w-full">
+                    <button
+                        className="btn btn-xs mt-1"
+                        onClick={() => {
+                            setSelectedUserID(null)
+                            setRefreshTrigger({})
+                        }}
+                    >Create New User</button>
+          
+                </div>
+            </div>
+            
+        </div >
+    </>
+} 

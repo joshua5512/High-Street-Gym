@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.day-mode {
+  background-color: white;
+  color: black;
+}
+
+.night-mode {
+  background-color: black;
+  color: white;
+}
