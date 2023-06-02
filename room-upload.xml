@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE room-upload [
+    <!ELEMENT room-upload (rooms)>
+    <!ATTLIST room-upload operation (insert|update) "insert">
+    <!ELEMENT rooms (room+)>
+    <!ELEMENT room (id?, location, number)>
+    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT location (#PCDATA)>
+    <!ELEMENT number (#PCDATA)>
+]>
+
+<room-upload operation="insert">
+    <rooms>
+        <room>
+            <location>1 High St, Southbank </location>
+            <number> G2010 </number>
+        </room>
+        <room>
+             <location> 1 High St, Southbank </location>
+            <number> G2009 </number> 
+        </room>
+        
+    </rooms>
+</room-upload>
+
+<!-- Update version  -->
+<!-- <room-upload operation="update">
+    <rooms>
+        <room>
+            <id>3</id>
+            <location>1 High St, Southbank</location>
+            <number> G2010</number>
+        </room>
+        <room>
+            <id>4</id>
+             <location>1 High St, Southbank</location>
+            <number> G2009</number> 
+        </room>
+        
+    </rooms>
+</room-upload> -->

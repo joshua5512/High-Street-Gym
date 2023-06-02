@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE activity-upload [
+    <!ELEMENT activity-upload (activities)>
+    <!ATTLIST activity-upload operation (insert|update) "insert">
+    <!ELEMENT activities (activity+)>
+    <!ELEMENT activity (id?, name, description, duration)>
+    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT description (#PCDATA)>
+    <!ELEMENT duration (#PCDATA)>
+]>
+
+
+<activity-upload operation="insert">
+    <activities>
+        <activity>
+            <name>Boxing </name>
+            <description> High Street Gym boxing is open </description>
+            <duration> 60 </duration>
+        </activity>
+        <activity>
+            <name>Yoga </name>
+            <description> High Street Gym yoga is open </description>
+            <duration> 60 </duration>
+        </activity>
+        <activity>
+            <name>Zumba </name>
+            <description> High Street Gym zumba is open </description>
+           <duration> 60 </duration>
+        </activity>
+        <activity>
+            <name>Indoor cycling </name>
+            <description> High Street Gym indoor cycling is open </description>
+            <duration> 60 </duration>
+        </activity>
+    </activities>
+</activity-upload>
+
+<!-- Update version  -->
+<!-- <activity-upload operation="update">
+    <activities>
+        <activity>
+            <id>17</id>
+            <name>Boxing </name>
+            <description> High Street Gym boxing is open </description>
+            <duration> 30 </duration>
+        </activity>
+        <activity>
+            <id>18</id>
+            <name>Yoga </name>
+            <description> High Street Gym yoga is open </description>
+            <duration> 30 </duration>
+        </activity>
+        <activity>
+            <id>19</id>
+            <name>Zumba </name>
+            <description> High Street Gym zumba is open </description>
+           <duration> 60 </duration>
+        </activity>
+        <activity>
+            <id>20</id>
+            <name>Indoor cycling </name>
+            <description> High Street Gym indoor cycling is open </description>
+            <duration> 60 </duration>
+        </activity>
+    </activities>
+</activity-upload> -->
